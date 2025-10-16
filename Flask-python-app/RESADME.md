@@ -588,7 +588,7 @@ Need help? Here's how to get support:
 
 **⭐ If you find this project helpful, please give it a star!**
 
-**Made with ❤️ and 🐍 by Sufiyan**
+**Made with ❤️ by Sufiyan**
 
 [⬆ Back to Top](#python-docker-application)
 
