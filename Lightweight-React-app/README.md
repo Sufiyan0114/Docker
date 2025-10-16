@@ -231,13 +231,11 @@ react-app/
 └── README.md              # Project documentation
 
 ---
-
 ## 📄 License
 
 This project is licensed under the MIT License
 
 ---
-
 ## 👨‍💻 Author
 
 **Sufiyan**
