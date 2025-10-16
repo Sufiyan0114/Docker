@@ -380,45 +380,6 @@ python-app/
 | `requirements.txt` | Python dependencies | Lists all required Python packages |
 | `README.md` | Documentation | Project setup and usage instructions |
 
-### Sample File Contents
-
-**app.py** (Example structure):
-```python
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route('/')
-def hello():
-    return 'Hello from Python Docker App!'
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
-```
-
-**requirements.txt** (Example):
-```
-Flask==2.3.0
-gunicorn==21.2.0
-```
-
-**Dockerfile** (Example structure):
-```dockerfile
-FROM python:3.9-slim
-
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-EXPOSE 8080
-
-CMD ["python", "app.py"]
-```
-
----
 
 ## 🔧 Troubleshooting
 
