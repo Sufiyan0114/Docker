@@ -1,8 +1,7 @@
 FROM python:3.11-slim AS build
 
 
-# Install build deps
-
+# Install deps and create non root usr
 RUN apt-get update && \
     apt-get install -y --no-install-recommends gcc python3-dev openssl && \
     rm -rf /var/lib/apt/lists/* && \
@@ -14,7 +13,7 @@ WORKDIR /dir
 
 COPY requirements.txt .
 
-# Installing deps inside custom path instead of installing globally
+# Installing requirements inside a custom path instead of a installing user's home directory
 RUN pip install --no-cache-dir --prefix=/install -r requirements.txt 
 
 
