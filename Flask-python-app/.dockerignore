@@ -1,0 +1,31 @@
+# git files
+.git
+.gitignore
+
+# python virtual environment
+venv
+.venv
+env
+*.env
+
+# python cache & compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE and editor directories
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# test artifacts
+.pytest_cache/
+.tox/
+
+  
+*.log
+  
