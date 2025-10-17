@@ -44,14 +44,3 @@ USER appusr
 EXPOSE 8080
 
 CMD ["nginx", "-g", "daemon off;"]       
-
-
-
-# create nginx.conf file in a same folder and add this content: 
-    
-
-### or could we use sed command but it's not permenent solution
-# RUN sed -i 's/listen\s*80;/listen 8080;/g' /etc/nginx/conf.d/default.conf
-
-## replace with:
-    # COPY --chown=appusr:appgroup nginx.conf /etc/nginx/conf.d/default.conf
