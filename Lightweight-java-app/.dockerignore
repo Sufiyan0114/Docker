@@ -1,0 +1,25 @@
+# git files
+.git
+.gitignore
+
+#maven build output 
+target/
+
+#gradle build output 
+build/
+.gradle/
+
+#log files
+*.log
+
+#IDE and editor files
+.vscode/
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
