@@ -13,16 +13,14 @@ ENV NODE_OPTIONS="--max-old-space-size=4096"
 
 COPY --chown=appusr:appgroup package*.json  ./
 
-
 RUN npm install --omit=dev --ignore-scripts --prefer-offline && \
     npm cache clean --force
 
-
 COPY --chown=appusr:appgroup . .
-
+# build a application (optimize and bundle a code)
 RUN npm run build
 
-
+#stage 2
 FROM nginx:stable-alpine
 
 # giving essential permissions to non root user for accessing nginx files
@@ -36,11 +34,14 @@ RUN addgroup -g 1001 appgroup && \
     touch /var/run/nginx.pid && \
     chown -R appusr:appgroup /var/run/nginx.pid
 
+# copy the files with the correct user permissions
 COPY --chown=appusr:appgroup nginx.conf /etc/nginx/conf.d/default.conf
-
 COPY --from=build --chown=appusr:appgroup /app/build /usr/share/nginx/html
 
+# using non root user
 USER appusr
+
+# the container should expose port 8080
 EXPOSE 8080
 
 CMD ["nginx", "-g", "daemon off;"]       
