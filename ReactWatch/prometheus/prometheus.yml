@@ -1,9 +1,10 @@
 scrape_configs:
-  - job_name: 'backend'
+  - job_name: 'backend' #here we are connenting backend service for matrics 
     static_configs:
-      - targets: ['backend:5000']
+      - targets: ['backend:5000'] # backend open port on 5000; prometheus will scrape metrics from the service
     metrics_path: /metrics
 
+# node exporter used for collecting system CPU, RAM, Disk info
   - job_name: 'node-exporter'
     static_configs:
       - targets: ['node-exporter:9100']

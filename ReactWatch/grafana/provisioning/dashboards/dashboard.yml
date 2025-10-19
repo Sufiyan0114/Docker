@@ -1,13 +1,13 @@
-apiVersion: 1
+apiVersion: 1 
 
 providers:
   - name: 'Default'
     orgId: 1
-    folder: ''
+    folder: '' #dashboard will load to the root folder of grafana
     type: file
-    disableDeletion: false
-    updateInterval: 10s  # हर 10 seconds में changes check करेगा
-    allowUiUpdates: true
+    disableDeletion: false # If JSON file is deleted, the dashboard will be automatically deleted
+    updateInterval: 10s  #auto-refresh every 10 seconds
+    allowUiUpdates: true # if 'true': user can modify dashboard using Grafana UI
     options:
-      path: /var/lib/grafana/dashboards
+      path: /var/lib/grafana/dashboards #JSON file path
       foldersFromFilesStructure: true
