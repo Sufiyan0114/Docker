@@ -457,7 +457,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ for modern monitoring and observability**
 
-[![GitHub stars](https://img.shields.io/github/stars/username/ReactWatch?style=social)](https://github.com/username/ReactWatch)
-[![GitHub forks](https://img.shields.io/github/forks/username/ReactWatch?style=social)](https://github.com/username/ReactWatch)
+[![GitHub stars](https://img.shields.io/github/stars/Sufiyan0114/ReactWatch?style=social)](https://github.com/Sufiyan0114/ReactWatch)
+[![GitHub forks](https://img.shields.io/github/forks/Sufiyan0114/ReactWatch?style=social)](https://github.com/Sufiyan0114/ReactWatch)
 
 </div>
