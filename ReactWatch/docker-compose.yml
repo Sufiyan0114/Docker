@@ -3,13 +3,13 @@ version: "3.8"
 services:
   frontend:
     build: ./frontend
-    container_name: frontend
+    container_name: frontend 
     ports:
       - "80:80"
     networks:
       - app-network
     depends_on:
-      - backend   # ✅ Simple dependency (healthcheck condition v3.8 me support nahi)
+      - backend   
 
   backend:
     build: ./backend
@@ -24,7 +24,8 @@ services:
       timeout: 3s
       retries: 5
       start_period: 10s
-
+      
+  #prometheus is used for collecting metrics.
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
@@ -34,7 +35,8 @@ services:
       - "9090:9090"
     networks:
       - app-network
-
+      
+  #grafana is used for monitoring through visualization.
   grafana:
     image: grafana/grafana:latest   
     container_name: grafana
@@ -43,6 +45,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
+      #for mounting/accessing folders that are present on the host but mounted to the container
       - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
       - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
       - ./grafana/dashboards:/var/lib/grafana/dashboards
@@ -54,6 +57,7 @@ services:
     networks:
       - app-network
 
+  #node exporter is used for collecting system-level information or metrics (like CPU, RAM, network, etc.)
   node-exporter:
     image: prom/node-exporter:latest
     container_name: node-exporter
@@ -66,6 +70,7 @@ services:
     volumes:
       - /:/host:ro,rslave
 
+# create a network bridge to allow containers to communicate with each other easily.
 networks:
   app-network:
     driver: bridge
