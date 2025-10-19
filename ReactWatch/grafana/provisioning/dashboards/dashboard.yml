@@ -6,7 +6,7 @@ providers:
     folder: ''
     type: file
     disableDeletion: false
-    updateInterval: 10s  # हर 10 seconds में changes check करेगा
+    updateInterval: 10s  #refresh every 10 seconds
     allowUiUpdates: true
     options:
       path: /var/lib/grafana/dashboards
