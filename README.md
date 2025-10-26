@@ -733,7 +733,7 @@ If you find this repository helpful, please consider giving it a star ⭐!
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Docker team for excellent containerization technology
 - Chainguard for distroless images
@@ -750,4 +750,5 @@ If you find this repository helpful, please consider giving it a star ⭐!
 [![Twitter Follow](https://img.shields.io/twitter/follow/yourusername?style=social)](https://twitter.com/yourusername)
 
 </div>
+
 >>>>>>> c54eb6a (Add Node-js app)
