@@ -4,13 +4,10 @@ name: 🐳 Build & Push Docker Image for doker-multistag-pyton
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - 'doker-multistag-pyton/**'
   pull_request:
     branches: [ "main" ]
-    paths:
-      - 'docker-multistage-python/**'
-
+  workflow_dispatch:
+    
 jobs:
   build:
     name: Build and Push Docker Image (doker-multistag-pyton)
@@ -41,6 +38,7 @@ jobs:
       - name: Build Docker image
         run: |
           IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/doker-multistag-pyton
+          cd docker-multistage-python
           docker build \
             -f doker-multistag-pyton/Dockerfile \
             -t $IMAGE_NAME:latest \
