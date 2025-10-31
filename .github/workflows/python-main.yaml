@@ -41,7 +41,7 @@ jobs:
       - name: Run Bandit SAST scan
         run: |
           cd docker-multistage-python
-          bandit -r . -ll --skip B101  # skip assert warning if not needed
+          bandit -r . 
 
       
       - name: Run Safety vulnerability scan
