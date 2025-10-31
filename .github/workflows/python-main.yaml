@@ -1,29 +1,30 @@
-name: 🐳 Build & Push Docker Image for docker-multistage-python
+name: Build & Push Docker Image for docker-multistage-python
 
 on:
-  push:
+  push: # trigger when code is pushed to the "main" branch 
     branches: [ "main" ]
-  pull_request:
+  pull_request:  # trigger when a pull request targets the "main" branch
     branches: [ "main" ]
-  workflow_dispatch:
+  workflow_dispatch: # Allow manual trigger from GitHub Actions UI
 
 jobs:
   build:
     name: Build and Push Docker Image (docker-multistage-python)
     runs-on: ubuntu-latest
 
+# GitHub permissions (read repo code, write to GHCR)
     permissions:
       contents: read
       packages: write
 
     steps:
-      - name: Checkout repository
+      - name: Checkout the repository code
         uses: actions/checkout@v4
 
-      - name: Set up Docker Buildx
+      - name: Set up Docker Buildx (for multi-platform builds)
         uses: docker/setup-buildx-action@v3
-
-      - name: Login to GHCR
+    
+      - name: Login to GitHub Container Registry # GHCR
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -39,9 +40,9 @@ jobs:
             -f Dockerfile \
             -t $IMAGE_NAME:latest \
             -t $IMAGE_NAME:${{ github.run_number }} \
-            .
-
-      - name: Push Docker image
+            . 
+      
+      - name: Push Docker image to GHCR
         run: |
           OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
           IMAGE_NAME=ghcr.io/$OWNER/docker-multistage-python
@@ -49,4 +50,4 @@ jobs:
           docker push $IMAGE_NAME:${{ github.run_number }}
 
       - name: Done
-        run: echo "✅ Image for 'docker-multistage-python' pushed to GHCR successfully!"
+        run: echo "Image for 'docker-multistage-python' pushed to GHCR successfully!"
