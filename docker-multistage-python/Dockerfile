@@ -20,7 +20,7 @@ RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 COPY --chown=appusr:appgroup . .
 
 # Stage 2: lightest image, provided by google
-FROM cgr.dev/chainguard/python:3.11
+FROM cgr.dev/chainguard/python:latest
 
 # for prod
 WORKDIR /app
